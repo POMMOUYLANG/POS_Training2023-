@@ -1,0 +1,130 @@
+.container-listing-user-section {
+    width: 100%;
+    height: calc(100dvh - 3.75rem);
+    overflow: hidden;
+
+    .container-listing-user-header {
+        width: 100%;
+        min-height: 3.75rem;
+        max-height: 3.75rem;
+    }
+
+    .container-listing-user-body {
+        width: 100%;
+        max-height: calc(100dvh - 7.5rem);
+        overflow: hidden;
+
+        .container-listing-user-content {
+            width: 100%;
+            max-height: calc(100dvh - 8.5rem);
+            overflow: hidden;
+
+            .container-listing-user-data {
+                width: 100%;
+                max-height: calc(100dvh - 11.25rem);
+                overflow: auto;
+                border-radius: 0.432rem;
+            }
+        }
+    }
+}
+
+table {
+    width: 100%;
+}
+
+.container-listing-user-data .mat-cell {
+    padding: 3px 6px !important;
+    color: rgb(71 85 105) !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+}
+
+.container-listing-user-data .mat-cell p {
+    font-size: 15px !important;
+    font-weight: 500;
+}
+
+.container-listing-user-data .mat-header-cell {
+    font-size: 1rem !important;
+    padding: 0 !important;
+    color: white !important;
+    z-index: 100 !important;
+}
+
+.container-listing-user-data .mat-header-cell:first-child {
+    border-top-left-radius: 0.5rem;
+}
+
+.container-listing-user-data .mat-header-cell:last-child {
+    border-top-right-radius: 0.4rem;
+}
+
+.container-listing-user-data .mat-column-no {
+    min-width: 70px;
+    width: 70px;
+    max-width: 70px;
+    text-align: center;
+}
+
+.container-listing-user-data .mat-column-name {
+    min-width: 10rem;
+    text-align: left;
+    padding: 3px 2rem !important;
+}
+
+.container-listing-user-data .mat-column-type {
+    min-width: 5rem;
+    text-align: left;
+    padding: 3px 2rem !important;
+}
+
+.container-listing-user-data .mat-column-phone {
+    min-width: 10rem;
+    text-align: left;
+    padding: 3px 2rem !important;
+}
+
+.container-listing-user-data .mat-column-email {
+    min-width: 15rem;
+    padding: 3px 6px 3px 2rem !important;
+}
+
+.container-listing-user-data .mat-column-last_update {
+    min-width: 15rem;
+    padding: 3px 6px 3px 2rem !important;
+}
+
+.container-listing-user-data .mat-column-image {
+    min-width: 10rem;
+    padding: 3px 6px 3px 2rem !important;
+}
+
+.container-listing-user-data .mat-column-status {
+    min-width: 6rem !important;
+}
+
+.container-listing-user-data .mat-column-action {
+    flex: none;
+    width: 2rem;
+    margin-right: -2px !important;
+}
+
+::ng-deep .custom-botton-flat .mat-flat-button {
+    color: #fff !important;
+}
+
+.flex-custom {
+    display: flex !important;
+}
+
+::placeholder {
+    color: rgb(100 116 139) !important;
+}
+
+::-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: rgb(100 116 139) !important;
+}
+
+//end - 12/12/2023

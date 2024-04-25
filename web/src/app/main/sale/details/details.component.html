@@ -1,0 +1,74 @@
+<div mat-dialog-title class="custom-dialog-title overide">
+    <span class="text-2xl font-semibold text-white">Invoice #{{getRow?.receipt_number}}</span>
+</div>
+
+<mat-dialog-content class="custom-dialog-content hidden-sroller" scrollbar="true">
+    <div class="w-full px-3 py-2 sticky left-0">
+        <div class="w-full flex justify-between">
+            <p>Created: {{getRow?.ordered_at | date: 'dd-MMM-yyy hh:mm a'}}</p>
+            <p>Cashier: {{getRow?.cashier?.name}}</p>
+        </div>
+        <div class="w-full flex justify-between">
+            <p>&nbsp;</p>
+            <!-- <p>ស្ថានភាព៖ <span [style.color]="getRow?.status?.color">{{getRow?.status?.name}}</span></p> -->
+            <p>Total: {{getRow?.total_price | number}} $</p>
+        </div>
+    </div>
+    <div class="data-dialog">
+        <table mat-table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="no">
+                <th mat-header-cell *matHeaderCellDef class="text-center bg-blue-200 ml-1">No.</th>
+                <td mat-cell *matCellDef="let i=index" class="text-center"> {{i+1}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="product">
+                <th mat-header-cell *matHeaderCellDef class=" bg-blue-200">Product</th>
+                <td mat-cell *matCellDef="let row"> {{row?.product?.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="price">
+                <th mat-header-cell *matHeaderCellDef class="text-right bg-blue-200">Price ($)</th>
+                <td mat-cell *matCellDef="let data" class="text-right">
+                    {{data?.unit_price | number}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="qty">
+                <th mat-header-cell *matHeaderCellDef class="text-right bg-blue-200">Quantity</th>
+                <td mat-cell *matCellDef="let element" class="text-right"> {{element?.qty}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="total">
+                <th mat-header-cell *matHeaderCellDef class="text-right bg-blue-200">Total</th>
+                <td mat-cell *matCellDef="let data" class="text-right">
+                    {{data?.total_price_this_product | number}}
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" class="-pr-2">
+            </tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <div class="custom-select-header sm:flex md:hidden lg:flex">
+            <!-- <mat-form-field appearance="outline" class="min-w-48 max-w-48">
+                <mat-select placeholder="ស្ថានភាព" [(ngModel)]="status_id">
+                    <mat-option *ngFor="let item of getRow" [value]="item.status.id">
+                    <span>{{item.status.name}}</span></mat-option>
+                </mat-select>
+            </mat-form-field> -->
+        </div>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center" class="custom-dialog-actions">
+    <button class="min-w-8 max-w-8 rounded-md custom-button" mat-flat-button [disabled]="downloading" (click)="print()">  
+        <span *ngIf="!downloading">
+            <mat-icon class="icon-size-6 text-white" svgIcon="heroicons_outline:printer"></mat-icon>
+        </span>
+        <mat-progress-spinner *ngIf="downloading" [diameter]="24" [mode]="'indeterminate'"></mat-progress-spinner>
+    </button>
+    <button class="min-w-8 max-w-8 rounded-md" mat-flat-button [disabled]="downloading" [mat-dialog-close]="false" color="warn">
+        <mat-icon class="icon-size-6 text-white" [svgIcon]="'heroicons_solid:x'"></mat-icon>
+    </button>
+</mat-dialog-actions>

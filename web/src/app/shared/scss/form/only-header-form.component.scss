@@ -1,0 +1,55 @@
+//costom select and input for only header
+.custom-select-header .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.custom-select-header .mat-form-field-appearance-outline .mat-form-field-infix {
+    margin-top: 0px !important;
+    padding: 0 0 1em 0 !important;
+    height: 44px !important;
+}
+
+.custom-select-header .mat-label {
+    font-size: 8px !important;
+}
+
+.custom-select-header .mat-form-field label {
+    font-size: 6px !important;
+}
+
+.custom-select-header .mat-form-field-label-wrapper {
+    top: -1.3em !important;
+}
+
+.custom-select-header .mat-form-field-appearance-outline .mat-form-field-label {
+    padding-top: 11px !important;
+}
+
+.custom-select-header input.mat-input-element {
+    height: 30px !important;
+    padding-top: 0px !important;
+    margin-top: -5px !important;
+    font-size: 15px !important;
+    color: rgb(71 85 105) !important;
+}
+
+.custom-select-header .mat-select-min-line {
+    height: 30px !important;
+    font-size: 16px !important;
+    padding-top: 4px !important;
+}
+
+.custom-select-header .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+    margin-top: 1px !important;
+}
+
+.custom-select-header .mat-select .mat-select-trigger .mat-select-value {
+    margin-top: -3px !important;
+    color: rgb(15 23 42) !important;
+}
+
+.mat-select .mat-select-placeholder {
+    font-size: 15px !important;
+    color: rgb(100 116 139) !important;
+}

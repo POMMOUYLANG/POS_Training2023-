@@ -1,0 +1,39 @@
+<div class="w-full p-4">
+
+    <!-- ===================================>> Display Loading -->
+    <ng-container *ngIf=" isLoading ">
+
+        <div class="min-w-26 w-full flex flex-col items-center overflow-hidden min-h-40 p-2 pt-6">
+            <p class="text-2xl mb-4" *transloco="let t">
+                <!-- សូមមេត្តារងចាំ! កំពុងទាញទិន្នន័យ -->
+                {{t('wait')}}
+            </p>
+
+            <div class="lds-spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+    </ng-container>
+
+    <!-- ===================================>> Display Result -->
+    <div *ngIf=" ! isLoading " class="max-w-120 min-h-50 border rounded-lg flex flex-col justify-center items-center bg-blue-50 shadow-sm" >
+        <p class="text-3xl font-light" *transloco="let t">
+            <!-- ការលក់សរុបថ្ងៃនេះ (រៀល) -->
+            {{ t('total_price') }}
+        </p>
+        <p class="text-5xl font-light text-green-500 mt-4"> {{ totalSaleToday | number }} </p>
+    </div>
+    
+</div>

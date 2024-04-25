@@ -1,0 +1,19 @@
+/* 1. Table */
+@use 'table/table.component';
+/* 2. Form */
+@use 'form/form.component';
+@use 'form/only-header-form.component';
+/* 3. Icon */
+@use 'icon/icon.component';
+/* 4. ScanckBar */
+@use 'snackbar/snackbar.component';
+/* 5. Spinner */
+@use 'spinner/spinner.component';
+/* 6. Paginator */
+@use 'paginator/paginator.component';
+/* 7. Dialog */
+@use 'dialog/dialog.component';
+/* 8. Button */
+@use 'button/button.component';
+/* 9. Tab */
+@use 'tab/tab.component';

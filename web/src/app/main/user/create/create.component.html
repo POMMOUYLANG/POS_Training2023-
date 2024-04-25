@@ -1,0 +1,81 @@
+<div mat-dialog-title class="custom-dialog-title">
+    <b><span class="text-3xl" style="color: white;">បង្កើតអ្នកប្រើប្រាស់ថ្មី</span></b>
+</div>
+
+<mat-dialog-content class="custom-dialog-content" scrollbar>
+    <form [formGroup]="create" #createNgForm="ngForm">
+        <div class="flex flex-col sm:flex-row gap-2">
+            <div class="w-full md:min-w-60 md:max-w-60 flex justify-center mt-3">
+                <div class="pr-0 md:pr-5 w-full max-w-60">
+                    <app-portrait mode="mode" [src]=" src " [title]=" 'ជ្រើសរើសរូបភាព' "
+                        (srcChange)="srcChange($event)">
+                    </app-portrait>
+                </div>
+            </div>
+            <div class="w-full">
+                <div class="custom-form custom-select w-full">
+                    <mat-form-field appearance="outline" class="w-full mb-6">
+                        <mat-label>ឈ្មោះ</mat-label>
+                        <input id="name" matInput [formControlName]="'name'" required>
+                        <mat-error class="min-h-6 mt-2.5 text-sm" *ngIf="create.get('name').hasError('required')">
+                            សូមបញ្ចូលឈ្មោះ
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-full mb-6">
+                        <mat-label>ប្រភេទអ្នកប្រើប្រាស់</mat-label>
+                        <ng-container>
+                            <mat-select formControlName="type_id">
+                                <ng-container>
+                                    <mat-option [value]="1">
+                                        <span>Admin</span>
+                                    </mat-option>
+                                    <mat-option [value]="2">
+                                        <span>Staff</span>
+                                    </mat-option>
+                                </ng-container>
+                            </mat-select>
+                        </ng-container>
+                        <mat-error class="min-h-6 mt-2.5 text-sm" *ngIf="create.get('type_id').hasError('required')">
+                            សូមជ្រើសរើសប្រភេទអ្នកប្រើប្រាស់
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-full mb-6">
+                        <mat-label>លេខទូរស័ព្ទ</mat-label>
+                        <input id="phone" matInput [formControlName]="'phone'" required>
+                        <mat-error class="min-h-6 mt-2.5 text-sm" *ngIf="create.get('phone').hasError('required')">
+                            សូមបញ្ចូលលេខទូរស័ព្ទ
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-full mb-6">
+                        <mat-label>អុីម៉ែល</mat-label>
+                        <input id="email" matInput [formControlName]="'email'" required>
+                        <mat-error class="min-h-6 mt-2.5 text-sm" *ngIf="create.get('email').hasError('required')">
+                            សូមបញ្ចូលអុីម៉ែល
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-full mb-6">
+                        <mat-label>លេខសម្ងាត់</mat-label>
+                        <input id="password" matInput [formControlName]="'password'" required>
+                        <mat-error class="min-h-6 mt-2.5 text-sm" *ngIf="create.get('password').hasError('required')">
+                            សូមបញ្ចូលលេខសម្ងាត់
+                        </mat-error>
+                    </mat-form-field>
+                    <ui-switch (change)="onChange($event)">
+                    </ui-switch>
+                </div>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center" class="custom-dialog-actions">
+    <button class="min-w-8 max-w-8 rounded-md custom-button" mat-flat-button (click)="submit()"
+        [disabled]="create.invalid || saving">
+        <mat-icon *ngIf="!create.disabled" class="icon-size-6 text-white" svgIcon="mat_solid:save"></mat-icon>
+        <mat-progress-spinner *ngIf="create.disabled" [diameter]="24" [mode]="'indeterminate'"></mat-progress-spinner>
+    </button>
+    <button class="min-w-8 max-w-8 rounded-md" mat-flat-button [mat-dialog-close]="false" color="warn">
+        <mat-icon class="icon-size-6 text-white" [svgIcon]="'heroicons_solid:x'"></mat-icon>
+    </button>
+</mat-dialog-actions>

@@ -1,0 +1,21 @@
+<div mat-dialog-title class="custom-dialog-title">
+    <span class="text-2xl font-semibold">បញ្ជាក់</span>
+</div>
+
+<mat-dialog-content class="custom-dialog-content">
+    <div class="w-30 m-auto">
+        <img src="assets/images/logo/question-v2.png" alt="question">
+    </div>
+    <div class="pt-2 m-auto text-2xl text-center">
+        តើអ្នកពិតជាចង់លុបវាមែនឫទេ?
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center" class="custom-dialog-actions">
+    <button class="min-w-8 max-w-8 rounded-md custom-button" mat-flat-button (click)="close(true)">
+        <mat-icon class="icon-size-6 text-white" svgIcon="mat_outline:check"></mat-icon>
+    </button>
+    <button class="min-w-8 max-w-8 rounded-md" mat-flat-button [mat-dialog-close]="false" color="warn" (click)="close(false)">
+        <mat-icon class="icon-size-6 text-white" [svgIcon]="'heroicons_solid:x'"></mat-icon>
+    </button>
+</mat-dialog-actions>

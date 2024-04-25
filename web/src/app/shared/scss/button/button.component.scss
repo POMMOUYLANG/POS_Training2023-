@@ -1,0 +1,10 @@
+.custom-button:disabled{
+    background-color:  rgb(226 232 240) !important;
+    color: #9da9bb !important;
+    cursor: not-allowed;
+}
+.custom-button:enabled{
+    background-color: #2ca0ee !important;
+    color: #fff !important;
+    font-weight: 600;
+}

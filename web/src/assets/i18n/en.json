@@ -1,0 +1,15 @@
+{
+    "Dashboard": "Dashboard",
+    "Pos": "Pos",
+    "Sale": "Sale",
+    "Product": "Product",
+    "Users": "Users",
+    "Profile": "Profile",
+
+
+    
+    "profile": "Profile",
+    "logout": "Logout",
+    "total_price": "Total price for today (KHR)",
+    "wait": "Please wait! Downloading"
+}

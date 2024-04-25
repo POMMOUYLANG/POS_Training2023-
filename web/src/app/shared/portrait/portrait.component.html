@@ -1,0 +1,14 @@
+<div class="picture m-bottom" (click)="selectFile()">
+  <img style="width: 100%" class="portrait img-center" [src]="src" />
+  <div *ngIf="mode !== 'READONLY'" class="upload flex justify-center items-center">
+    <span class="text-xl mr-2"> {{ title }} </span>
+    <mat-icon class="text-secondary" [svgIcon]="'mat_outline:backup'"></mat-icon>
+  </div>
+</div>
+
+<input
+  [id]="'portrait-file-' + index"
+  class="portrait-file"
+  type="file"
+  (change)="fileChangeEvent($event)"
+/>

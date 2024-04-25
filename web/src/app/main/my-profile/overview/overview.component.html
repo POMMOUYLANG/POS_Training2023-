@@ -1,0 +1,60 @@
+<div class="main-content-overview p-3">
+    <div class="overview-image">
+        <app-portrait mode="mode" [src]=" src " [title]=" 'Choose an image' "
+        (srcChange)="srcChange($event)">
+    </app-portrait>
+    </div>
+    <div class="w-full p-6">
+        <div class="w-full">
+
+            <!-- form -->
+            <form class="custom-form" [formGroup]="form" #myProfileNgForm="ngForm">
+
+                <!-- Name field -->
+                <mat-form-field appearance="outline" class="w-full mb-5">
+                    <mat-label>Name</mat-label>
+                    <input id="name" matInput [formControlName]="'name'">
+                    <mat-error *ngIf="form.get('name').hasError('required')">
+                        Full name is required
+                    </mat-error>
+                </mat-form-field>
+
+                <!-- Phone field -->
+                <mat-form-field appearance="outline" class="w-full mb-5">
+                    <mat-label>Phone Number</mat-label>
+                    <input id="phone" matInput [formControlName]="'phone'" class="siereap">
+                    <mat-error *ngIf="form.get('phone').hasError('required')">
+                        Phone number is required
+                    </mat-error>
+                    <mat-error *ngIf="form.get('phone').hasError('phone')">
+                        Please enter a valid phone number
+                    </mat-error>
+                </mat-form-field>
+
+                <!-- Email field -->
+                <mat-form-field appearance="outline" class="w-full mb-5">
+                    <mat-label>Email</mat-label>
+                    <input id="email" matInput [formControlName]="'email'" class="siereap">
+                    <mat-error *ngIf="form.get('email').hasError('required')">
+                        Email address is required
+                    </mat-error>
+                    <mat-error *ngIf="form.get('email').hasError('email')">
+                        Please enter a valid email address
+                    </mat-error>
+                </mat-form-field>
+
+                <!-- Submit button -->
+                <div class="flex justify-end">
+                    <button class="w-full py-6 sm:min-w-20 sm:max-w-20 min-h-11 max-h-11 rounded-md custom-button"
+                        mat-flat-button [disabled]="form.invalid  || saving" (click)="submit()">
+                        <span *ngIf="!form.disabled" class="text-lg">
+                            Confirm
+                        </span>
+                        <mat-progress-spinner *ngIf="form.disabled" [diameter]="24" [mode]="'indeterminate'">
+                        </mat-progress-spinner>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

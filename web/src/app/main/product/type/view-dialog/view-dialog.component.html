@@ -1,0 +1,29 @@
+<div mat-dialog-title class="custom-dialog-title">
+    <span class="text-2xl text-white">ម៉ាកផលិតផល</span>
+</div>
+
+<mat-dialog-content class="custom-dialog-content" scrollbar>
+    <form [formGroup]="form"  >
+        <div class="custom-form w-full min-h-18">
+            <mat-form-field appearance="outline" class="w-full mb-2">
+
+                <mat-label>ប្រភេទផលិតផល</mat-label>
+                <input id="name" matInput [formControlName]="'name'" (keydown.enter)="save()">
+
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center" class="custom-dialog-actions">
+
+    <button class="min-w-8 max-w-8 rounded-md custom-button" mat-flat-button [disabled]="form.invalid  || isSaving" (click)="save()" >
+        <mat-icon *ngIf=" !isSaving " class="icon-size-6 text-white" svgIcon="mat_solid:edit"></mat-icon>
+        <mat-progress-spinner *ngIf=" isSaving"[diameter]="24" [mode]="'indeterminate'"></mat-progress-spinner>
+    </button>
+
+    <button class="min-w-8 max-w-8 rounded-md" mat-flat-button [mat-dialog-close]="false" color="warn">
+        <mat-icon class="icon-size-6 text-white" [svgIcon]="'heroicons_solid:x'"></mat-icon>
+    </button>
+    
+</mat-dialog-actions>

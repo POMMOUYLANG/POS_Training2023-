@@ -1,0 +1,85 @@
+<div class="navigation-wrapper">
+
+    <!-- Header -->
+    <div class="navigation-header">
+        <ng-content select="[NavigationHeader]"></ng-content>
+    </div>
+
+    <!-- Content header -->
+    <div class="navigation-content-header sticky top-0 z-99">
+        <ng-content select="[NavigationContentHeader]"></ng-content>
+    </div>
+
+    <!-- Content -->
+    <div class="navigation-content" scrollbar
+    [scrollbarOptions]="{wheelPropagation: inner, suppressScrollX: true}">
+        <!-- Items -->
+        <ng-container *ngFor="let item of navigation; trackBy: trackByFn">
+
+            <!-- Skip the hidden items -->
+            <ng-container *ngIf="(item.hidden && !item.hidden(item)) || !item.hidden">
+
+                <!-- Aside -->
+                <ng-container *ngIf="item.type === 'aside'">
+                    <navigation-aside-item [item]="item" [name]="name" [activeItemId]="activeAsideItemId"
+                        [autoCollapse]="autoCollapse" [skipChildren]="true" (click)="toggleAside(item)">
+                    </navigation-aside-item>
+                </ng-container>
+
+                <!-- Basic -->
+                <ng-container *ngIf="item.type === 'basic'">
+                    <navigation-basic-item [item]="item" [name]="name"></navigation-basic-item>
+                </ng-container>
+
+                <!-- Collapsable -->
+                <ng-container *ngIf="item.type === 'collapsable'">
+                    <navigation-collapsable-item [item]="item" [name]="name" [autoCollapse]="autoCollapse">
+                    </navigation-collapsable-item>
+                </ng-container>
+
+                <!-- Divider -->
+                <ng-container *ngIf="item.type === 'divider'">
+                    <navigation-divider-item [item]="item" [name]="name"></navigation-divider-item>
+                </ng-container>
+
+                <!-- Group -->
+                <ng-container *ngIf="item.type === 'group'">
+                    <navigation-group-item [item]="item" [name]="name" [autoCollapse]="autoCollapse">
+                    </navigation-group-item>
+                </ng-container>
+
+                <!-- Spacer -->
+                <ng-container *ngIf="item.type === 'spacer'">
+                    <navigation-spacer-item [item]="item" [name]="name"></navigation-spacer-item>
+                </ng-container>
+
+            </ng-container>
+
+        </ng-container>
+    </div>
+
+    <!-- Aside -->
+    <ng-container *ngIf="activeAsideItemId">
+        <div class="navigation-aside-wrapper" scrollbar
+            [scrollbarOptions]="{wheelPropagation: false, suppressScrollX: true}" [@fadeInLeft]="position === 'left'"
+            [@fadeInRight]="position === 'right'" [@fadeOutLeft]="position === 'left'"
+            [@fadeOutRight]="position === 'right'">
+
+            <!-- Items -->
+            <ng-container *ngFor="let item of navigation; trackBy: trackByFn">
+
+                <!-- Skip the hidden items -->
+                <ng-container *ngIf="(item.hidden && !item.hidden(item)) || !item.hidden">
+
+                    <!-- Aside -->
+                    <ng-container *ngIf="item.type === 'aside' && item.id === activeAsideItemId">
+                        <navigation-aside-item [item]="item" [name]="name" [autoCollapse]="autoCollapse">
+                        </navigation-aside-item>
+                    </ng-container>
+
+                </ng-container>
+
+            </ng-container>
+
+        </div>
+    </ng-container>

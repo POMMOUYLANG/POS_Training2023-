@@ -1,0 +1,59 @@
+<!-- Loading bar -->
+<loading-bar></loading-bar>
+
+<!-- Navigation -->
+<helpers-navigation class="dark custom-bg-navigation text-white print:hidden" [appearance]="navigationAppearance"
+    [mode]="isScreenSmall ? 'over' : 'side'" [name]="'mainNavigation'" [navigation]="navigation.default"
+    [opened]="!isScreenSmall">
+    <!-- Navigation header hook -->
+    <ng-container NavigationContentHeader>
+        <!-- Logo -->
+        <div class="flex bg-custom items-center justify-between min-h-15 max-h-15 p-0 shadow">
+
+            <!-- Logo -->
+            <div class="width">
+                <img src="assets/images/logo/pos.png" alt="Logo image">
+            </div>
+
+            <div class="flex items-center pr-2 space-x-2">
+                <!-- Navigation appearance toggle button -->
+                <button class="hidden md:inline-flex" mat-icon-button (click)="toggleNavigationAppearance()">
+                    <mat-icon class="text-white" [svgIcon]="'heroicons_outline:menu'"></mat-icon>
+                </button>
+                <button class="inline-flex md:hidden" mat-icon-button (click)="toggleNavigation('mainNavigation')">
+                    <mat-icon class="text-white" svgIcon="mat_outline:arrow_back"></mat-icon>
+                </button>
+            </div>
+        </div>
+    </ng-container>
+</helpers-navigation>
+
+<!-- Wrapper -->
+<div class="flex flex-col flex-auto w-full min-w-0 custom-main-section-dense">
+
+    <!-- Header -->
+    <div
+        class="bg-custom sticky top-0 z-99 flex flex-0 items-center w-full min-h-15 max-h-15 px-4 md:px-6 custom-shadow">
+        <div class="flex items-center pr-2 space-x-2">
+            <!-- Navigation toggle button -->
+            <button class="inline-flex md:hidden" mat-icon-button (click)="toggleNavigation('mainNavigation')">
+                <mat-icon class="text-white" [svgIcon]="'heroicons_outline:menu'"></mat-icon>
+            </button>
+            <ng-container *ngIf="role != ''">
+                <span class="text-white text-xl">{{role}}</span>
+            </ng-container>
+        </div>
+        <!-- Components -->
+        <div class="flex items-center pl-2 ml-auto space-x-0.5 sm:space-x-2">
+            <languages></languages>
+            <full-screen class="hidden md:block"></full-screen>
+            <user></user>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="flex relative flex-col flex-auto container-section-dense">
+        <router-outlet *ngIf="true"></router-outlet>
+    </div>
+
+</div>

@@ -1,0 +1,71 @@
+<div mat-dialog-title class="custom-dialog-title">
+    <span class="text-3xl text-white">បច្ចុប្បន្នភាពផលិតផល</span>
+</div>
+
+<mat-dialog-content class="custom-dialog-content" scrollbar>
+    <form [formGroup]="form">
+        <div class="flex flex-col sm:flex-row gap-2">
+
+            <div class="w-full md:min-w-60 md:max-w-60 flex justify-center mt-3">
+                <div class="pr-0 md:pr-5 w-full max-w-60">
+                    <app-portrait mode="mode" [src]=" srcImageFileUrl " [title]=" 'ជ្រើសរើសរូបភាព' "
+                        (srcChange)="srcChange($event)">
+                    </app-portrait>
+                </div>
+            </div>
+
+            <div class="w-full">
+                <div class="custom-form custom-select w-full">
+                    <mat-form-field appearance="outline" class="w-full mb-6">
+                        <mat-label>លេខកូដ</mat-label>
+                        <input id="code" matInput [formControlName]="'code'" required>
+                        <mat-error class="min-h-6 mt-2.5 text-sm" *ngIf="form.get('code').hasError('required')">
+                            សូមបញ្ចូលលេខកូដ
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-full mb-6">
+                        <mat-label>ប្រភេទផលិតផល</mat-label>
+                        <ng-container>
+                            <mat-select formControlName="type_id">
+                                <ng-container *ngIf="types?.length > 0">
+                                    <mat-option *ngFor="let row of types" [value]="row.id">
+                                        <span>{{ row.name }}</span>
+                                    </mat-option>
+                                </ng-container>
+                            </mat-select>
+                        </ng-container>
+                        <mat-error class="min-h-6 mt-2.5 text-sm" *ngIf="form.get('type_id').hasError('required')">
+                            សូមជ្រើសរើសប្រភេទផលិតផល
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-full mb-6">
+                        <mat-label>ឈ្មោះ</mat-label>
+                        <input id="name" matInput [formControlName]="'name'" required>
+                        <mat-error class="min-h-6 mt-2.5 text-sm" *ngIf="form.get('name').hasError('required')">
+                            សូមបញ្ចូលឈ្មោះ
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-full mb-6">
+                        <mat-label>តម្លៃ​(រៀល)</mat-label>
+                        <input id="unit_price" matInput [formControlName]="'unit_price'" required>
+                        <mat-error class="min-h-6 mt-2.5 text-sm" *ngIf="form.get('unit_price').hasError('required')">
+                            សូមបញ្ចូលតម្លៃ​ជាប្រាក់រៀល
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center" class="custom-dialog-actions">
+    <button class="min-w-8 max-w-8 rounded-md custom-button" mat-flat-button (click)="submit()"
+        [disabled]="form.invalid || isSaving">
+        <mat-icon *ngIf="!form.disabled" class="icon-size-6 text-white" svgIcon="mat_solid:save"></mat-icon>
+        <mat-progress-spinner *ngIf="form.disabled" [diameter]="24" [mode]="'indeterminate'"></mat-progress-spinner>
+    </button>
+    <button class="min-w-8 max-w-8 rounded-md" mat-flat-button [mat-dialog-close]="false" color="warn">
+        <mat-icon class="icon-size-6 text-white" [svgIcon]="'heroicons_solid:x'"></mat-icon>
+    </button>
+</mat-dialog-actions>

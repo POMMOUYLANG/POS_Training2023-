@@ -1,0 +1,129 @@
+.container-listing-products-section {
+    width: 100%;
+    height: calc(100dvh - 3.75rem);
+    overflow: hidden;
+
+    .container-listing-products-header {
+        width: 100%;
+        min-height: 3.75rem;
+        max-height: 3.75rem;
+    }
+
+    .container-listing-products-body {
+        width: 100%;
+        max-height: calc(100dvh - 7.5rem);
+        overflow: hidden;
+
+        .container-listing-products-content {
+            width: 100%;
+            max-height: calc(100dvh - 8.5rem);
+            overflow: hidden;
+
+            .container-listing-products-data {
+                width: 100%;
+                max-height: calc(100dvh - 11.25rem);
+                overflow: auto;
+                border-radius: 0.432rem;
+            }
+        }
+    }
+}
+
+
+table {
+    width: 100%;
+}
+
+.container-listing-products-data .mat-cell {
+    padding: 3px 6px !important;
+    color: rgb(71 85 105) !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+}
+
+.container-listing-products-data .mat-cell p {
+    font-size: 15px !important;
+    font-weight: 500;
+}
+
+.container-listing-products-data .mat-header-cell {
+    font-size: 1rem !important;
+    padding: 0 !important;
+    color: white !important;
+    z-index: 100 !important;
+}
+
+.container-listing-products-data .mat-header-cell:first-child {
+    border-top-left-radius: 0.5rem;
+}
+
+.container-listing-products-data .mat-header-cell:last-child {
+    border-top-right-radius: 0.4rem;
+}
+
+.container-listing-products-data .mat-column-no {
+    min-width: 70px;
+    width: 70px;
+    max-width: 70px;
+    text-align: center;
+}
+
+.container-listing-products-data .mat-column-code {
+    min-width: 5rem;
+    text-align: left;
+    padding: 3px 2rem !important;
+}
+
+.container-listing-products-data .mat-column-image {
+    min-width: 4rem;
+    text-align: left;
+    padding: 3px 2rem !important;
+}
+
+.container-listing-products-data .mat-column-name {
+    min-width: 10rem;
+    text-align: left;
+    padding: 3px 1rem !important;
+}
+
+.container-listing-products-data .mat-column-type {
+    min-width: 8rem;
+    text-align: left;
+    padding: 3px 1rem !important;
+}
+
+.container-listing-products-data .mat-column-price {
+    min-width: 10rem;
+    text-align: right;
+    padding: 3px 2rem 3px 2rem !important;
+}
+
+.container-listing-products-data .mat-column-date {
+    min-width: 13rem !important;
+}
+
+.container-listing-products-data .mat-column-action {
+    flex: none;
+    width: 2rem;
+    margin-right: -2px !important;
+}
+
+
+::ng-deep .custom-botton-flat .mat-flat-button {
+    color: #fff !important;
+}
+
+
+.flex-custom {
+    display: flex !important;
+}
+
+::placeholder {
+    color: rgb(100 116 139) !important;
+}
+
+::-ms-input-placeholder {
+    color: rgb(100 116 139) !important;
+}
+
+//end - 12/12/2023

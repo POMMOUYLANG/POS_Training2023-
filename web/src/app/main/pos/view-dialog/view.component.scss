@@ -1,0 +1,68 @@
+.hidden-sroller::-webkit-scrollbar {
+    width: 0 !important;
+}
+
+.overide.custom-dialog-title {
+    margin: -24px -24px 0px !important;
+}
+
+.hidden-sroller.custom-dialog-content {
+    padding: 0 !important;
+}
+
+table {
+    width: 100%;
+}
+
+.data-dialog .mat-cell {
+    padding: 3px 6px !important;
+    color: rgb(71 85 105) !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+}
+
+.data-dialog .mat-cell p {
+    font-size: 15px !important;
+    font-weight: 500;
+}
+
+.data-dialog .mat-header-cell {
+    font-size: 1rem !important;
+    padding: 0 !important;
+    color: rgb(30, 41, 59) !important;
+    z-index: 100 !important;
+}
+
+.data-dialog .mat-column-no {
+    min-width: 70px;
+    width: 70px;
+    max-width: 70px;
+    text-align: center;
+}
+
+.data-dialog .mat-column-product {
+    min-width: 5rem;
+    text-align: left;
+    padding: 3px 2rem !important;
+}
+
+.data-dialog .mat-column-price {
+    min-width: 10rem;
+    padding: 3px 6px 3px 2rem !important;
+}
+
+.data-dialog .mat-column-qty {
+    min-width: 12rem;
+    text-align: left;
+    padding: 3px 2rem !important;
+}
+
+
+.data-dialog .mat-column-total {
+    flex: none;
+    width: 2rem;
+    text-align: right !important;
+    padding-right: 1rem !important;
+}
+
+//end - 12/12/2023

@@ -1,0 +1,112 @@
+.container-listing-product-type-section {
+    width: 100%;
+    height: calc(100dvh - 3.75rem);
+    overflow: hidden;
+
+    .container-listing-product-type-header {
+        width: 100%;
+        min-height: 3.75rem;
+        max-height: 3.75rem;
+    }
+
+    .container-listing-product-type-body {
+        width: 100%;
+        max-height: calc(100dvh - 7.5rem);
+        overflow: hidden;
+
+        .container-listing-product-type-content {
+            width: 100%;
+            max-height: calc(100dvh - 8.5rem);
+            overflow: hidden;
+
+            .container-listing-product-type-data {
+                width: 100%;
+                max-height: calc(100dvh - 8.25rem);
+                overflow: auto;
+                border-radius: 0.432rem;
+            }
+        }
+    }
+}
+
+table {
+    width: 100%;
+}
+
+.container-listing-product-type-data .mat-cell {
+    padding: 3px 6px !important;
+    color: rgb(71 85 105) !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+}
+
+.container-listing-product-type-data .mat-cell p {
+    font-size: 15px !important;
+    font-weight: 500;
+}
+
+.container-listing-product-type-data .mat-header-cell {
+    font-size: 1rem !important;
+    padding: 0 !important;
+    color: white !important;
+    z-index: 100 !important;
+}
+
+.container-listing-product-type-data .mat-header-cell:first-child {
+    border-top-left-radius: 0.5rem;
+}
+
+.container-listing-product-type-data .mat-header-cell:last-child {
+    border-top-right-radius: 0.4rem;
+}
+
+.container-listing-product-type-data .mat-column-no {
+    min-width: 10px;
+    text-align: center;
+    padding-left: 0.3rem !important;
+}
+
+.container-listing-product-type-data .mat-column-image {
+    min-width: 1rem;
+    text-align: center;
+    padding-left: 0.2rem !important;
+}
+
+.container-listing-product-type-data .mat-column-name {
+    min-width: 10rem;
+    text-align: left;
+    padding-left: 0.4rem !important;
+}
+
+.container-listing-product-type-data .mat-column-n_of_products {
+    min-width: 4rem;
+    text-align: center;
+    padding-right: 4rem !important;
+}
+
+.container-listing-product-type-data .mat-column-date {
+    min-width: 8rem;
+    text-align: left;
+    padding-right: 3rem !important;
+}
+
+.container-listing-product-type-data .mat-column-action {
+    flex: none;
+    width: 2rem;
+    margin-right: -2px !important;
+}
+
+::ng-deep .custom-botton-flat .mat-flat-button {
+    color: #fff !important;
+}
+
+.flex-custom {
+    display: flex !important;
+}
+
+.text-gray {
+    --tw-text-opacity: 1 !important;
+    color: rgb(203 213 225 / var(--tw-text-opacity)) !important;
+}
+
+//end - 12/12/2023

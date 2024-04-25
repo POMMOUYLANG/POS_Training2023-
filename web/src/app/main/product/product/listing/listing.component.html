@@ -1,0 +1,174 @@
+<div class="container-listing-products-section">
+    <div class="container-listing-products-header flex gap-2 justify-between items-center py-2 px-5 shadow bg-white">
+        <div class="flex items-center whitespace-nowrap">
+            <mat-icon class="text-gray-600 icon-size-4.5" matPrefix [svgIcon]="'heroicons_solid:home'"></mat-icon>
+            <div class="flex items-center ml-1 whitespace-nowrap">
+                <mat-icon class="icon-size-4.5 text-gray-600" [svgIcon]="'heroicons_solid:chevron-right'">
+                </mat-icon>
+                <span class="ml-1 text-gray-600">ផលិតផល</span>
+            </div>
+            <div class="flex items-center ml-1 whitespace-nowrap">
+                <mat-icon class="icon-size-4.5 text-gray-600" [svgIcon]="'heroicons_solid:chevron-right'">
+                </mat-icon>
+                <span class="ml-1 text-gray-600">ផលិតផលទាំងអស់</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-2">
+            <div class="custom-select-header hidden md:flex">
+                <mat-form-field appearance="outline" class="min-w-40 max-w-40">
+                    <mat-select [(ngModel)]="priducts_type_id" placeholder="ប្រភេទផលិតផល">
+                        <mat-option [value]="0" (click)="listing()">
+                            <span>ទាំងអស់</span>
+                        </mat-option>
+                        <ng-container *ngIf="products_type?.length > 0">
+                            <mat-option *ngFor="let row of products_type" [value]="row?.id" (click)="listing()">
+                                <span>{{ row?.name }}</span>
+                            </mat-option>
+                        </ng-container>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="custom-select-header hidden sm:flex">
+                <mat-form-field appearance="outline" class="min-w-60 max-w-60">
+                    <input matInput [(ngModel)]="key" placeholder="លេខកូដ ឬឈ្មោះ" (keyup.enter)="listing()">
+                </mat-form-field>
+            </div>
+
+            <div class="custom-botton-flat hidden sm:flex mr-2">
+                <button class="min-w-10 max-w-10 rounded-full bg-gray-200" mat-icon-button (click)="listing()">
+                    <mat-icon class="icon-size-7" svgIcon="mat_solid:search"></mat-icon>
+                </button>
+            </div>
+
+            <div class="custom-botton-flat">
+                <button class="min-w-18 max-w-18 rounded-md bg-blue-400" mat-flat-button (click)="create()">
+                    <mat-icon class="icon-size-7 pl-1" [svgIcon]="'heroicons_outline:plus-circle'"></mat-icon>
+                    <span class="pr-2">បង្កើត</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="container-listing-products-body px-3 pt-3">
+        <ng-container *ngIf="isLoading">
+            <div class="min-w-26 w-full flex flex-col items-center overflow-hidden min-h-30 p-2 mt-6">
+                <p class="text-xl mb-4">សូមរងចាំ! កំពុងទាញទិន្នន័យ</p>
+                <div class="lds-spinner">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container>
+            <div *ngIf=" data?.length === 0 && !isLoading " class="flex flex-col justify-center items-center mb-4">
+                <mat-icon class="icon-size-24" svgIcon="toc"></mat-icon>
+                <span class="text-2xl"><span>គ្មានទិន្នន័យ</span></span>
+            </div>
+        </ng-container>
+        <div class="container-listing-products-content border rounded-lg hidden flex-col"
+            [ngClass]="{'flex-custom': data?.length > 0  && !isLoading }">
+            <div class="container-listing-products-data bg-blue-200" scrollbar="true">
+
+                <table mat-table [dataSource]="dataSource">
+
+                    <ng-container matColumnDef="no">
+                        <th mat-header-cell *matHeaderCellDef> ល.រ </th>
+                        <td mat-cell *matCellDef="let i=index"> {{i+1}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="code">
+                        <th mat-header-cell *matHeaderCellDef> លេខកូដ </th>
+                        <td mat-cell *matCellDef="let row"> {{row?.code}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="image">
+                        <th mat-header-cell *matHeaderCellDef> រូបភាព </th>
+                        <td mat-cell *matCellDef="let element">
+                            <img [src]="element?.image ? FILE_PUBLIC_BASE_URL+element?.image : null"
+                                style="width:45px; height: 45px;" alt="image">
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> ឈ្មោះ </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="type">
+                        <th mat-header-cell *matHeaderCellDef> ប្រភេទ </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.type?.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="price">
+                        <th mat-header-cell *matHeaderCellDef> តម្លៃទំនិញ </th>
+                        <td mat-cell *matCellDef="let data">
+                            {{data?.unit_price | number}} ៛
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="date">
+                        <th mat-header-cell *matHeaderCellDef>កាលបរិច្ឆេទ</th>
+                        <td mat-cell *matCellDef="let data">
+                            <ng-container *ngIf="data?.created_at">
+                                <p><span class="text-gray-400 text-base"></span> {{data?.created_at | date: 'dd-MMM-yyy
+                                    hh:mm a'}}</p>
+                            </ng-container>
+                            <ng-container *ngIf="data?.updated_at">
+                                <p><span class="text-gray-400 text-base">កែប្រែ៖</span> {{data?.updated_at | date: 'dd-MMM-yyy hh:mm a'}}</p>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="action" stickyEnd>
+                        <th mat-header-cell *matHeaderCellDef aria-label="row actions" class="z-999"></th>
+                        <td mat-cell *matCellDef="let element; let i=index;" class="bg-white z-0 -right-1">
+                            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="icon-button with a menu">
+                                <mat-icon class="icon-size-6" svgIcon="mat_outline:more_vert"></mat-icon>
+                            </button>
+                            <mat-menu #menu="matMenu">
+
+                                <button mat-menu-item [routerLink]="[element.id, 'view']" [state]="element">
+                                    <mat-icon class="icon-size-5 text-blue-500"
+                                        svgIcon="mat_outline:remove_red_eye"></mat-icon>
+                                    <span class="text-lg text-blue-500">មើល</span>
+                                </button>
+
+                                <button mat-menu-item (click)="update(i , element)">
+                                    <mat-icon class="icon-size-5 text-blue-500" svgIcon="mat_outline:edit"></mat-icon>
+                                    <span class="text-lg text-blue-500">កែប្រែ</span>
+                                </button>
+                                <button mat-menu-item (click)="delete(element?.id)">
+                                    <mat-icon class="icon-size-5 text-red-400"
+                                        svgIcon="mat_solid:delete_outline"></mat-icon>
+                                    <span class="text-lg text-red-400">លុប</span>
+                                </button>
+
+                            </mat-menu>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" class="bg-blue-400 -pr-2"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+            <div class="container-listing-products-paginator min-h-11 max-h-11"
+                [ngClass]="{'flex-custom': data?.length > 0  && !isLoading }">
+                <mat-paginator
+                    class="w-full bg-gray-50 dark:bg-black dark:bg-opacity-5 flex items-center justify-end overflow-hidden"
+                    [pageSizeOptions]="[10, 20, 30]" [showFirstLastButtons]="true" [length]="total" [pageSize]="limit"
+                    (page)="onPageChanged($event)">
+                </mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>

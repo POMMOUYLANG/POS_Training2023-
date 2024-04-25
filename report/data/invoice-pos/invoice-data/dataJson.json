@@ -1,0 +1,42 @@
+{
+    "total": 7000,
+    "data": [
+        {
+            "id": 109,
+            "receipt_number": 9709736,
+            "cashier_id": 1,
+            "total_price": 7000,
+            "ordered_at": "2023-03-05 11:33:08",
+            "cashier": {
+                "id": 1,
+                "name": "Yim Klok"
+            },
+            "details": [
+                {
+                    "id": 329,
+                    "order_id": 109,
+                    "qty": 1,
+                    "product_id": 7,
+                    "unit_price": 5000,
+                    "product": {
+                        "id": 7,
+                        "name": "Cheez-it",
+                        "image": "static/Products/Snack/cheezit.png"
+                    }
+                },
+                {
+                    "id": 330,
+                    "order_id": 109,
+                    "qty": 1,
+                    "product_id": 8,
+                    "unit_price": 2000,
+                    "product": {
+                        "id": 8,
+                        "name": "Chikki",
+                        "image": "static/Products/Snack/chikki.png"
+                    }
+                }
+            ]
+        }
+    ]
+}

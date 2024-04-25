@@ -1,0 +1,85 @@
+<div class="flex items-start sm:items-center mx-auto min-w-full overflow-y-hidden">
+    <!-- ==============================================>> Login Form -->
+    <div class="background w-full md:w-2/12 md:min-w-100">
+        <div class="max-w-120 md:max-w-90 min-h-full m-auto p-2 pt-18 sm:h-full rounded-3xl">
+            <div class="flex flex-col justify-center items-center">
+                <img class="flex min-w-24 max-w-24 mb-4 justify-center items-center" src="assets/images/logo/pos-none-text.png" alt="image">
+                <p class="text-4xl text-blue-800 font-bold text-center">ប្រព័ន្ធគ្រប់គ្រងការលក់</p>
+                <p class="text-2xl text-blue-700 font-bold text-center">POS Management System</p>
+
+                <p class="text-3xl text-black justify-start items-start mt-14">ចូលគណនីរបស់អ្នក</p>
+            </div>
+
+            <!-- Sign in form -->
+            <form class="mt-8 custom-form" [formGroup]="logInForm" >
+
+                <!-- Username field -->
+                <mat-form-field appearance="outline" class="w-full mb-6">
+
+                     <!-- Label -->
+                    <mat-label>លេខEmail</mat-label>
+
+                     <!-- Input -->
+                    <input id="username" matInput [formControlName]="'username'">
+                    <mat-icon class="mr-2" matSuffix svgIcon="mat_outline:smartphone"></mat-icon>
+
+                    <!-- Error -->
+                    <mat-error class="min-h-6 mt-2.5 text-sm" *ngIf = " logInForm.get('username').hasError('email') ">
+                        សូមបញ្ចូលEmail
+                    </mat-error>
+
+                </mat-form-field>
+
+                <!-- Password field -->
+                <mat-form-field appearance="outline" class="w-full mb-6">
+                    <mat-label>លេខសម្ងាត់</mat-label>
+                    <input id="password" matInput type="password" [formControlName]="'password'" #passwordField>
+                    <button mat-icon-button type="button" class="-top-0.5" (click)="passwordField.type === 'password' ? passwordField.type = 'text' : passwordField.type = 'password'" matSuffix>
+                        <mat-icon class="icon-size-5" *ngIf="passwordField.type === 'password'"
+                            [svgIcon]="'heroicons_solid:eye-off'"></mat-icon>
+                        <mat-icon class="icon-size-5" *ngIf="passwordField.type === 'text'"
+                            [svgIcon]="'heroicons_solid:eye'"></mat-icon>
+                    </button>
+                    <mat-error class="min-h-6 mt-2.5 text-sm">
+                        សូមបញ្ចូលលេខសម្ងាត់
+                    </mat-error>
+                </mat-form-field>
+
+                <!-- Submit button -->
+                <button
+
+                    class="w-full mt-6 py-6 rounded-md custom-button"
+                    mat-flat-button
+                    [disabled]=" logInForm.invalid || isLoading  "
+                    (click)=" login() "
+
+                    >
+
+                    <span *ngIf=" !isLoading " class="text-lg"> ចូលប្រព័ន្ធ</span>
+                    <mat-progress-spinner *ngIf=" isLoading " [diameter]="24" [mode]="'indeterminate'"></mat-progress-spinner>
+
+                </button>
+
+
+            </form>
+
+        </div>
+    </div>
+
+    <!-- ==============================================>> Login Banner -->
+    <div class="relative hidden md:flex flex-auto w-10/12 h-full overflow-hidde justify-center items-center bg-blue-300">
+        <!-- Background -->
+        <img class="image min-h-[400px] h-[400px] w-[500px] min-w-[500px]"  src="assets/images/backgrounds/POS-image3D.png" alt="image">
+        <!-- Content -->
+        <div class="z-10 w-full custom-position">
+            <!-- <div class="flex min-w-28 max-w-28 mb-4">
+                <img src="assets/images/logo/pos-none-text.png" alt="image">
+            </div> -->
+            <!-- <div class="font-bold">
+                <p class="text-6xl text-gray-800">ប្រព័ន្ធគ្រប់គ្រងការលក់</p>
+            </div> -->
+
+        </div>
+    </div>
+
+</div>

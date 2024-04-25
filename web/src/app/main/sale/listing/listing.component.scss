@@ -1,0 +1,134 @@
+.container-listing-pos-section {
+    width: 100%;
+    height: calc(100dvh - 3.75rem);
+    overflow: hidden;
+
+    .container-listing-pos-header {
+        width: 100%;
+        min-height: 3.75rem;
+        max-height: 3.75rem;
+
+        .custom-botton-flat .mat-flat-button {
+            color: #fff !important;
+        }
+    }
+
+    .container-listing-pos-body {
+        width: 100%;
+        height: calc(100dvh - 7.5rem);
+        overflow: hidden;
+
+        .container-listing-pos-content {
+            width: 100%;
+            max-height: calc(100dvh - 8.5rem);
+            overflow: hidden;
+
+            .container-listing-pos-data {
+                width: 100%;
+                max-height: calc(100dvh - 11.25rem);
+                overflow: hidden;
+                border-radius: 0.432rem;
+
+                .sub-header-content {
+                    width: 100%;
+                    min-height: 3.75rem;
+                    max-height: 3.75rem;
+                }
+
+                .sub-data-scrollbar {
+                    width: 100%;
+                    max-height: calc(100dvh - 15rem);
+                }
+            }
+        }
+    }
+}
+
+
+.flex-custom {
+    display: flex !important;
+}
+
+::placeholder {
+    color: rgb(100 116 139) !important;
+}
+
+::-ms-input-placeholder {
+    color: rgb(100 116 139) !important;
+}
+
+::ng-deep .icon-date .mat-form-field-appearance-outline .mat-form-field-suffix {
+    top: 0.15em !important;
+    right: -0.6rem !important;
+}
+
+::ng-deep .sub-header-content .mat-button-focus-overlay {
+    top: 3px !important;
+    left: 2px !important;
+    height: 33px !important;
+    width: 33px !important;
+}
+
+::ng-deep .custom-botton-flat .mat-flat-button {
+    color: #fff !important;
+}
+
+table {
+    width: 100%;
+}
+
+.sub-data-scrollbar .mat-cell {
+    padding: 3px 6px !important;
+    color: rgb(71 85 105) !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+}
+
+.sub-data-scrollbar .mat-cell p {
+    font-size: 15px !important;
+    font-weight: 500;
+}
+
+.sub-data-scrollbar .mat-header-cell {
+    font-size: 1rem !important;
+    padding: 0 !important;
+    color: white !important;
+    z-index: 100 !important;
+}
+
+.sub-data-scrollbar .mat-column-no {
+    min-width: 70px;
+    width: 70px;
+    max-width: 70px;
+    text-align: center;
+}
+
+.sub-data-scrollbar .mat-column-invoice {
+    min-width: 5rem;
+    text-align: left;
+    padding: 3px 2rem !important;
+}
+
+.sub-data-scrollbar .mat-column-price {
+    min-width: 10rem;
+    padding: 3px 6px 3px 2rem !important;
+}
+
+.sub-data-scrollbar .mat-column-cashier {
+    min-width: 12rem;
+    text-align: left;
+    padding: 3px 2rem !important;
+}
+
+.sub-data-scrollbar .mat-column-date {
+    min-width: 13rem !important;
+    padding-left: 2rem !important;
+}
+
+.sub-data-scrollbar .mat-column-action {
+    flex: none;
+    width: 2rem;
+    margin-right: -2px !important;
+}
+
+//end - 12/12/2023

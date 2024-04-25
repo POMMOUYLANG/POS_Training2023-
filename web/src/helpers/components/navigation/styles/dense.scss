@@ -1,0 +1,197 @@
+/* Variables */
+:root {
+    --helpers-navigation-width: 270px;
+    --helpers-navigation-dense-width: 68px;
+}
+
+helpers-navigation {
+    /* Dense appearance overrides */
+    &.helpers-navigation-appearance-dense {
+
+        &:not(.helpers-navigation-mode-over) {
+            width: var(--helpers-navigation-dense-width);
+            min-width: var(--helpers-navigation-dense-width);
+            max-width: var(--helpers-navigation-dense-width);
+
+            /* Left positioned */
+            &.helpers-navigation-position-left {
+
+                /* Side mode */
+                &.helpers-navigation-mode-side {
+                    margin-left: calc(var(--helpers-navigation-dense-width) * -1);
+                }
+
+                /* Opened */
+                &.helpers-navigation-opened {
+                    margin-left: 0;
+                }
+            }
+
+            /* Right positioned */
+            &.helpers-navigation-position-right {
+
+                /* Side mode */
+                &.helpers-navigation-mode-side {
+                    margin-right: calc(var(--helpers-navigation-dense-width) * -1);
+                }
+
+                /* Opened */
+                &.helpers-navigation-opened {
+                    margin-right: 0;
+                }
+
+                /* Aside wrapper */
+                .navigation-aside-wrapper {
+                    left: auto;
+                    right: var(--helpers-navigation-dense-width);
+                }
+
+                &.helpers-navigation-hover {
+
+                    .navigation-aside-wrapper {
+                        left: auto;
+                        right: var(--helpers-navigation-width);
+                    }
+                }
+            }
+        }
+
+        /* Wrapper */
+        .navigation-wrapper {
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+
+            /* Content */
+            .navigation-content {
+
+                navigation-aside-item,
+                navigation-basic-item,
+                navigation-collapsable-item,
+                navigation-group-item {
+
+                    .navigation-item-wrapper {
+
+                        .navigation-item {
+                            width: calc(var(--helpers-navigation-dense-width) - 24px);
+                            min-width: calc(var(--helpers-navigation-dense-width) - 24px);
+                            max-width: calc(var(--helpers-navigation-dense-width) - 24px);
+
+                            .navigation-item-arrow,
+                            .navigation-item-badge,
+                            .navigation-item-title-wrapper {
+                                transition: opacity 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+                            }
+                        }
+                    }
+                }
+
+                navigation-group-item {
+
+                    &:first-of-type {
+                        margin-top: 0px;
+                    }
+                }
+            }
+        }
+
+        &:not(.helpers-navigation-hover):not(.helpers-navigation-mode-over) {
+
+            /* Wrapper */
+            .navigation-wrapper {
+
+                /* Content */
+                .navigation-content {
+
+                    .navigation-item-wrapper {
+
+                        .navigation-item {
+                            margin-left: 12px;
+                            padding: 12px;
+                            border-radius: 50%;
+
+                            .navigation-item-arrow,
+                            .navigation-item-badge,
+                            .navigation-item-title-wrapper {
+                                white-space: nowrap;
+                                opacity: 0;
+                            }
+                        }
+                    }
+
+                    navigation-collapsable-item {
+
+                        .navigation-item-children {
+                            display: none;
+                        }
+                    }
+
+                    // navigation-group-item {
+
+                    //     > .navigation-item-wrapper {
+
+                    //         .navigation-item {
+
+                    //             &:before {
+                    //                 content: '';
+                    //                 position: absolute;
+                    //                 top: 20px;
+                    //                 width: 23px;
+                    //                 border-top-width: 2px;
+                    //             }
+                    //         }
+                    //     }
+                    // }
+                    // comment by yim klok
+                }
+            }
+        }
+
+        /* Aside wrapper */
+        .navigation-aside-wrapper {
+            left: var(--helpers-navigation-dense-width);
+        }
+
+        /* Hover */
+        &.helpers-navigation-hover {
+
+            .navigation-wrapper {
+                width: var(--helpers-navigation-width);
+
+                .navigation-content {
+
+                    .navigation-item-wrapper {
+
+                        .navigation-item {
+                            width: calc(var(--helpers-navigation-width) - 24px);
+                            min-width: calc(var(--helpers-navigation-width) - 24px);
+                            max-width: calc(var(--helpers-navigation-width) - 24px);
+
+                            .navigation-item-arrow,
+                            .navigation-item-badge,
+                            .navigation-item-title-wrapper {
+                                white-space: nowrap;
+                                animation: removeWhiteSpaceNoWrap 1ms linear 350ms;
+                                animation-fill-mode: forwards;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .navigation-aside-wrapper {
+                left: var(--helpers-navigation-width);
+            }
+        }
+    }
+}
+
+@keyframes removeWhiteSpaceNoWrap {
+    0% {
+        white-space: nowrap
+    }
+    99% {
+        white-space: nowrap
+    }
+    100% {
+        white-space: normal;
+    }
+}

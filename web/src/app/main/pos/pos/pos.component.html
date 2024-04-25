@@ -1,0 +1,155 @@
+<div class="container-listing-pos-section">
+
+    <div class="container-listing-pos-header flex gap-2 justify-between items-center py-2 px-5 shadow bg-white">
+        <div class="flex flex-1 items-center font-medium">
+            <div class="flex items-center whitespace-nowrap">
+                <mat-icon class="text-gray-600 icon-size-4.5" matPrefix [svgIcon]="'heroicons_solid:home'"></mat-icon>
+            </div>
+            <div class="flex items-center ml-1 whitespace-nowrap">
+                <mat-icon class="icon-size-4.5 text-gray-600" [svgIcon]="'heroicons_solid:chevron-right'">
+                </mat-icon>
+                <span class="ml-1 text-gray-600">ការបញ្ជាទិញ</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-listing-pos-body p-2">
+
+        <ng-container *ngIf="isLoading">
+            <div class="min-w-26 w-full flex flex-col items-center overflow-hidden min-h-30 p-2 mt-6">
+                <p class="text-xl mb-4">សូមរងចាំ! កំពុងទាញទិន្នន័យ</p>
+                <div class="lds-spinner">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container>
+            <div *ngIf=" data?.length == 0 && !isLoading " class="flex flex-col justify-center items-center mb-4">
+                <mat-icon class="icon-size-24" svgIcon="toc"></mat-icon>
+                <span class="text-2xl"><span>គ្មានទិន្នន័យ</span></span>
+            </div>
+        </ng-container>
+
+        <div class="container-listing-pos-content border rounded-lg overflow-x-auto overflow-y-hidden"
+            *ngIf=" data?.length > 0 && !isLoading">
+            <div class="cotainer-listing-pos-left">
+                <mat-tab-group>
+                    <ng-container *ngFor=" let type of data ">
+                        <mat-tab [label]=" type?.name ">
+                            <div class="custom-container-tab-body" scrollbar>
+                                <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 p-3">
+
+                                    <ng-container *ngFor=" let product of type.products " class="overflow-hidden">
+                                        <div class="p-3">
+
+                                            <app-product-item [data]=" product "
+                                                (result)=" addToCart($event, 1) "></app-product-item>
+
+                                        </div>
+                                    </ng-container>
+
+                                    <span *ngIf=" type.products.length == 0 ">គ្មានផលិតផល!!!</span>
+                                </div>
+                            </div>
+                        </mat-tab>
+                    </ng-container>
+                </mat-tab-group>
+            </div>
+            <div class="cotainer-listing-pos-right">
+                <div
+                    class="cotainer-listing-pos-right-header flex justify-between items-center px-3 mb-6 border-l border-b">
+                    <span>អ្នកគិតបញ្ជី៖ <b>{{cashier}}</b></span>
+                </div>
+                <div class="cotainer-listing-pos-right-body border-l-2" scrollbar>
+                    <div *ngIf=" cart?.length > 0">
+                        <table class="proposal-value-table border">
+                            <thead>
+                                <tr>
+                                    <th class="flex justify-start p-3"
+                                        style="width: 8.9rem; min-width: 8.9rem; max-width: 8.9rem;">
+                                        ផលិតផល</th>
+                                    <th class="title" style="width: 9rem; min-width: 9rem; max-width: 9rem;">
+                                        បរិមាណ​ (ចំនួន)</th>
+                                    <th class="flex justify-end p-3"
+                                        style="width: 9rem; min-width: 9rem; max-width: 9rem;">
+                                        តម្លៃ
+                                    </th>
+                                    <th style="width: 3rem; min-width: 3rem; max-width: 3rem;"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr *ngFor="let item of cart; let i = index; ">
+
+                                    <td class="px-3.5 py-2 border-b">
+                                        {{ item?.name }} <br>
+                                        <span style="font-style: italic; font-size: 12px;">
+                                            {{ item?.unit_price | number}} រៀល
+                                        </span>
+                                    </td>
+
+                                    <td class="text-center px-3.5 py-2 border-b">
+                                        <input class="text-right" type="number" [(ngModel)]=" item.temp_qty  "
+                                            (keyup)="blur($event, i)" min="0"
+                                            oninput="this.value = Math.abs(this.value)" max="1000">
+                                    </td>
+
+                                    <td class="text-right px-3.5 py-2 border-b">
+                                        {{ item?.unit_price*item?.qty | number }} រៀល
+                                    </td>
+                                    <td class="border-b">
+                                        <button color="warn" class="remove" mat-icon-button
+                                            (click)="remove(item.temp_qty,i)">
+                                            <mat-icon class="icon-size-5 text-red-400"
+                                                svgIcon="mat_solid:delete_outline"></mat-icon>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-right px-3.5 py-4" colspan=2>តំលៃ​​សរុប៖ </td>
+                                    <td class="text-right px-3.5 py-4"><b>{{ totalPrice | number }} រៀល</b></td>
+                                    <td class="text-right px-3.5 py-4"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- <section class="p-2 flex justify-start border-l border-b">
+                            <label class="pl-1">ស្ថានភាព៖ </label>
+                            <mat-radio-group [(ngModel)]="status_id">
+                              <mat-radio-button class="ml-2" value="1"><b style="color: #05c505;">Paid</b></mat-radio-button>
+                              <mat-radio-button class="ml-2" value="2"><b style="color: #fcfc10;">Pending</b></mat-radio-button>
+                            </mat-radio-group>
+                        </section> -->
+                        <div class="custom-botton-flat p-2 flex justify-end border-l border-r border-b">
+                            <button class="min-w-8 max-w-8 rounded-md bg-blue-400" [disabled]="!canSubmit"
+                                mat-flat-button (click)="checkOut()">
+                                <mat-spinner [diameter]=30 *ngIf="isOrderBeingMade"></mat-spinner>
+                                <mat-icon class="icon-size-7" *ngIf="!isOrderBeingMade "
+                                    svgIcon="mat_solid:save"></mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <ng-container>
+                        <div *ngIf=" cart?.length == 0 " class="flex flex-col justify-center items-center mt-10">
+                            <mat-icon class="icon-size-24" svgIcon="toc"></mat-icon>
+                            <span class="text-2xl"><span>គ្មានទិន្នន័យ</span></span>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

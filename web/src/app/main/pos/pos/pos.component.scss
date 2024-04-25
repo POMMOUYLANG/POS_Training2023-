@@ -1,0 +1,92 @@
+.container-listing-pos-section {
+    width: 100%;
+    height: calc(100dvh - 3.75rem);
+    overflow: hidden;
+
+    .container-listing-pos-header {
+        min-height: 3.75rem;
+        max-height: 3.75rem;
+    }
+
+    .container-listing-pos-body {
+        height: calc(100dvh - 7.5rem);
+        overflow: hidden;
+
+        .container-listing-pos-content {
+            height: calc(100dvh - 8.5rem);
+            display: flex;
+            gap: 0.5rem;
+
+            .cotainer-listing-pos-left {
+                width: calc(100% - 30rem);
+                min-width: 20rem;
+                height: calc(100dvh - 8.5rem);
+            }
+
+            .cotainer-listing-pos-right {
+                min-width: 30rem;
+                max-width: 30rem;
+                height: calc(100dvh - 8.5rem);
+
+                .cotainer-listing-pos-right-header {
+                    min-height: 51px;
+                    max-height: 51px;
+                }
+
+                .cotainer-listing-pos-right-body {
+                    height: calc(100dvh - 13.3rem);
+                }
+            }
+        }
+    }
+}
+
+.custom-container-tab-body {
+    height: calc(100dvh - 11.8rem);
+}
+
+::ng-deep .mat-tab-group .mat-tab-header .mat-tab-label-container .mat-tab-list .mat-tab-labels .mat-tab-label {
+    width: 100%;
+}
+
+.container-listing-pos-content::-webkit-scrollbar {
+    height: 0 !important;
+}
+
+
+.proposal-value-table {
+    width: 100%;
+    margin: 0;
+    border: 1px solid #e2e8f0;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 13px;
+
+    thead {
+        th {
+            background: #e2e8f0;
+            color: #000;
+        }
+    }
+}
+
+::ng-deep .custom-botton-flat .mat-flat-button {
+    color: #fff !important;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    border: 1px solid #e2e8f0;
+    border-radius: 0.3rem;
+    padding: 0.3rem 0.5rem;
+}
+
+::ng-deep mat-radio-group mat-radio-button {
+    color: green !important;
+}

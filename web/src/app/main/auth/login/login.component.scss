@@ -1,0 +1,30 @@
+.background{
+    justify-content: start;
+    align-items: start;
+    height: 100vh;
+    background-image: url('../../../../assets/images/backgrounds/art_login.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top center;
+}
+.image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.custom-position{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 6rem;
+    padding-left: 3rem;
+}
+.custom-position p{
+    font-size: 2em;
+    color: #fff;
+    text-shadow: 4px 4px 5px white;
+}
+
+.background-custom {
+    height: 100vh;
+}

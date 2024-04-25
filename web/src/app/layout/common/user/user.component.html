@@ -1,0 +1,26 @@
+<!-- Button -->
+<button mat-icon-button [matMenuTriggerFor]="userActions">
+    <span class="relative">
+        <img class="w-8 h-8 rounded-full" [src]="file + user.avatar">
+        <mat-icon *ngIf="!user.avatar" [svgIcon]="'heroicons_outline:user-circle'"></mat-icon>
+    </span>
+</button>
+
+<mat-menu [xPosition]="'before'" #userActions="matMenu" class="absolute top-2.5 -right-6 py-0">
+    <button mat-menu-item (click)="myProfile()">
+        <mat-icon svgIcon="mat_outline:change_circle"></mat-icon>
+        <span class=" text-md font-bold">{{ user?.name }}</span>
+    </button>
+    <mat-divider class="my-0"></mat-divider>
+    <button mat-menu-item (click)="myProfile()">
+        <mat-icon [svgIcon]="'heroicons_outline:user-circle'"></mat-icon>
+        <!-- <span>គណនី</span> -->
+        <span *transloco="let t">{{t('profile')}}</span>
+    </button>
+    <mat-divider class="my-0"></mat-divider>
+    <button mat-menu-item (click)="logout()">
+        <mat-icon [svgIcon]="'heroicons_outline:logout'"></mat-icon>
+        <!-- <span>ចាកចេញ</span> -->
+        <span *transloco="let t">{{t('logout')}}</span>
+    </button>
+</mat-menu>

@@ -1,0 +1,24 @@
+<div mat-dialog-title class="custom-dialog-title">
+    <span class="text-xl">Crop your image.</span>
+</div>
+
+<mat-dialog-content class="custom-dialog-content">
+    <image-cropper
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="false" 
+    [aspectRatio]="4 / 3" format="png"
+    (imageCropped)="imageCropped($event)"
+    (imageLoaded)="imageLoaded()"
+    (cropperReady)="cropperReady()"
+    (loadImageFailed)="loadImageFailed()"
+></image-cropper>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center" class="custom-dialog-actions">
+    <button class="min-w-8 max-w-8 rounded-md text-white custom-button" mat-flat-button [mat-dialog-close]=" result ">
+        <mat-icon class="icon-size-6 text-white" svgIcon="mat_solid:save"></mat-icon>
+    </button>
+    <button class="min-w-8 max-w-8 rounded-md" mat-flat-button (click)="close()" color="warn">
+        <mat-icon class="icon-size-6 text-white" [svgIcon]="'heroicons_solid:x'"></mat-icon>
+    </button>
+</mat-dialog-actions>

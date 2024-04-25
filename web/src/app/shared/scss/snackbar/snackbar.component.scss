@@ -1,0 +1,25 @@
+/*
+ * snakbar
+ */
+ .black-snackbar {
+    background: rgb(220 38 38) !important;
+    color: white !important;
+}
+
+.green-snackbar {
+    background: #32CD32 !important;
+    color: white !important;
+}
+
+.mat-snack-bar-container {
+    min-width: min-content !important;
+    max-width: max-content !important;
+    padding: 10px 15px !important;
+    border-radius: 8px !important;
+    z-index: 10000 !important;
+}
+.mat-simple-snack-bar-content{
+    min-height: 20px !important;
+    padding-top: 5px !important;
+    font-size: 15px !important;
+}

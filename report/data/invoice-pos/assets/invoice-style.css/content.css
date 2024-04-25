@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    position: 0;
+    box-sizing: border-box;
+}
+.content{
+    width: 100%;
+    height: 100vh;
+    /* background-color: aquamarine; */
+    padding: 3rem;
+}
+.header{
+    width: 100%;
+    /* background-color: blanchedalmond; */
+}
+.header .top-header{
+    padding: .5rem 0 1rem;
+    border-bottom: 1px solid gainsboro;
+}
+.header .top-header p{
+    font-family: 'Khmer OS Siemreap Regular';
+    font-size: 1.8rem;
+}
+.header .top-header p span{
+    color: blue;
+}
+
+.header .buttom-header{
+    width: 100%;
+    display: flex;
+    padding: 1rem 0;
+    border-bottom: 1px solid gainsboro;
+}
+.buttom-header .box{
+    width: 50%;
+}
+.buttom-header .right{
+    text-align: right;
+}
+.header .buttom-header p{
+    font-family: 'Khmer OS Siemreap Regular';
+    font-size: 1.2rem;
+}
+
+main{
+    width: 100%;
+    padding: 1rem 0;
+    border-bottom: 1px solid gainsboro;
+}
+main .table{
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Khmer OS Siemreap Regular';
+    font-size: 1.2rem;
+    border: 1px solid gainsboro;
+}
+.table .table-header td{
+    padding: .5rem;
+    background-color: rgb(110, 146, 245);
+    border-bottom: 1px solid gainsboro;
+}
+.table .table-body td{
+     padding: .5rem;
+     border-bottom: 1px solid gainsboro;
+}
+.td{
+    text-align: right;
+}
+.td span{
+    margin-right: 2rem;
+}
+.text-green{
+    color: green;
+}

@@ -1,0 +1,53 @@
+2022-10-11T04:13:40.942Z - error: Error when processing OData POST: /odata/assets Error: Unable to find or read file C:\Users\Klok\Desktop\jsreportapp\style.css. ENOENT: no such file or directory, open 'C:\Users\Klok\Desktop\jsreportapp\style.css'
+    at module.exports (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+    at MainReporter.createError (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:47:12)
+    at readFile (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-assets\lib\assetsShared.js:199:20)
+    at async AsyncFunction.<anonymous> (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-assets\lib\main.js:132:9)
+    at async ListenerCollection.fire (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+    at async Object.insert (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-core\lib\main\store\collection.js:104:5)
+caused by: Error: ENOENT: no such file or directory, open 'C:\Users\Klok\Desktop\jsreportapp\style.css'
+2022-10-12T03:11:05.912Z - error: Error when starting http server on port 5488 Error: listen EADDRINUSE: address already in use :::5488
+    at Server.setupListenHandle [as _listen2] (node:net:1372:16)
+    at listenInCluster (node:net:1420:12)
+    at Server.listen (node:net:1508:7)
+    at C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-express\lib\main.js:22:12
+    at new Promise (<anonymous>)
+    at startAsync (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-express\lib\main.js:16:10)
+    at C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-express\lib\main.js:50:14
+    at Object.start (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-express\lib\main.js:125:13)
+    at Object.<anonymous> (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-express\lib\main.js:327:30)
+    at async ListenerCollection.fire (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+2022-10-12T06:17:40.960Z - error: Report render failed: Unexpected token } in JSON at position 59 SyntaxError: Unexpected token } in JSON at position 59
+    at JSON.parse (<anonymous>)
+    at normalizeJSONData (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\request.js:60:17)
+    at module.exports (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\request.js:36:23)
+    at WorkerReporter._render (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\render\render.js:112:21)
+    at WorkerReporter.render (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:128:17)
+    at C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:179:30
+    at WorkerReporter.executeWorkerAction (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\reporter.js:174:12)
+    at Object.execute (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-core\lib\worker\workerHandler.js:52:23)
+    at C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:93:41
+    at Domain.<anonymous> (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:141:25)
+    at Domain.run (node:domain:378:15)
+    at C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:139:7
+    at new Promise (<anonymous>)
+    at runInDomain (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:134:10)
+    at execute (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:93:10)
+    at processAndResponse (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\advanced-workers\lib\workerHandler.js:43:23) rootId=76dxteaks9aafds, id=76dxteaks9aafds
+2022-10-12T07:32:41.722Z - error: Error when processing OData PATCH: /odata/templates(A8P5vejMEjHhRpGc) Error: Entity (_id: A8P5vejMEjHhRpGc) was modified previously by another source
+    at module.exports (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+    at MainReporter.createError (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:47:12)
+    at AsyncFunction.<anonymous> (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-studio\lib\main.js:454:30)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ListenerCollection.fire (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+    at async Object.update (C:\Users\Klok\Desktop\jsreportapp\node_modules\@jsreport\jsreport-core\lib\main\store\collection.js:137:5)
+2022-12-01T15:00:12.988Z - error: Error during processing request at http://localhost:5488/api/profile/events, details: Error: Unable to parse jsrprofile file. end of central directory record signature not found
+    at module.exports (C:\Users\Klok\Desktop\CamCyberTraining\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+    at MainReporter.createError (C:\Users\Klok\Desktop\CamCyberTraining\jsreportapp\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:47:12)
+    at C:\Users\Klok\Desktop\CamCyberTraining\jsreportapp\node_modules\@jsreport\jsreport-express\lib\routes.js:278:21
+caused by: Error: end of central directory record signature not found
+    at C:\Users\Klok\Desktop\CamCyberTraining\jsreportapp\node_modules\yauzl\index.js:187:14
+    at C:\Users\Klok\Desktop\CamCyberTraining\jsreportapp\node_modules\yauzl\index.js:631:5
+    at Immediate.<anonymous> (C:\Users\Klok\Desktop\CamCyberTraining\jsreportapp\node_modules\fd-slicer\index.js:202:5)
+    at processImmediate (node:internal/timers:466:21)

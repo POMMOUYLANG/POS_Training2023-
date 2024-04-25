@@ -1,0 +1,144 @@
+.custom-form {
+
+    .mat-form-field-appearance-outline {
+        .mat-form-field-flex {
+            height: 52px !important;
+        }
+
+        .mat-form-field-subscript-wrapper {
+            margin-top: 20px !important; //chencel margin of appearance-outline
+            padding: 0 !important;
+        }
+
+        .mat-form-field-wrapper {
+            padding: 0 !important;
+        }
+
+        .mat-form-field-infix {
+            padding: 0 !important;
+        }
+
+        .mat-form-field-suffix {
+            top: -3.5px !important;
+            right: -7px !important;
+        }
+
+        .mat-form-field-label {
+            padding-top: .3em !important;
+            height: 40px !important;
+            color: rgb(100 116 139) !important;
+            transition: all 0.1s !important;
+        }
+    }
+
+    .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button,
+    .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button {
+        width: 2.6em !important;
+        height: 2.5em !important;
+        margin-left: -10px !important;
+    }
+
+    .mat-form-field-label-wrapper {
+        top: -1.63em !important;
+        padding-top: 1rem !important;
+    }
+
+    .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+        height: 40px !important;
+        padding-top: 4px !important;
+        color: rgb(239 68 68) !important;
+        transition: all 0.1s !important;
+    }
+
+    .mat-input-element {
+        margin-top: -0.32rem !important;
+        height: 40px !important;
+        color: rgb(15 23 42) !important;
+    }
+
+    .mat-select .mat-select-trigger .mat-select-value {
+        margin-top: -2px !important;
+        color: rgb(15 23 42) !important;
+    }
+
+}
+
+.custom-textarea {
+
+    .mat-form-field-appearance-outline {
+        .mat-form-field-flex {
+            height: 100px !important;
+        }
+
+        .mat-form-field-subscript-wrapper {
+            margin-top: 20px !important; //chencel margin of appearance-outline
+            padding: 0 !important;
+        }
+
+        .mat-form-field-wrapper {
+            padding: 0 !important;
+        }
+
+        .mat-form-field-infix {
+            padding: 0 !important;
+        }
+
+        .mat-form-field-suffix {
+            top: -3.5px !important;
+            right: -7px !important;
+        }
+
+        .mat-form-field-label {
+            padding-top: .3em !important;
+            height: 40px !important;
+            color: rgb(100 116 139) !important;
+            transition: all 0.1s !important;
+        }
+    }
+
+    .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button,
+    .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button {
+        width: 2.6em !important;
+        height: 2.5em !important;
+        margin-left: -10px !important;
+    }
+
+    .mat-form-field-label-wrapper {
+        top: -1.63em !important;
+        padding-top: 1rem !important;
+    }
+
+    .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+        height: 40px !important;
+        padding-top: 4px !important;
+        color: rgb(239 68 68) !important;
+        transition: all 0.1s !important;
+    }
+
+    .mat-input-element {
+        margin-top: -0.32rem !important;
+        height: 40px !important;
+        color: rgb(15 23 42) !important;
+        resize: none !important;
+    }
+
+}
+
+//mat-select
+.custom-select .mat-select-min-line {
+    height: 37px !important;
+    padding-top: 7px !important;
+}
+
+.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
+.mat-form-field-appearance-outline.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label {
+    height: 40px !important;
+    padding-top: 5px !important;
+    margin-top: 0 !important;
+    color: rgb(100 116 139) !important;
+}
+
+.mat-hint {
+    font-size: 12px !important;
+    color: rgb(100 116 139) !important;
+}

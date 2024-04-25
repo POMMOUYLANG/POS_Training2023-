@@ -1,0 +1,17 @@
+<div class="container-my-profiles-section relative">
+    <div class="container-my-profiles-header">
+        <!-- do not do in this  -->
+    </div>
+    <div class="container-my-profiles-body absolute inset-0 p-6">
+        <div class="container-my-profiles-content border rounded-lg bg-white">
+            <mat-tab-group>
+                <mat-tab label="OverView">
+                    <app-overview [data]="data"></app-overview>
+                </mat-tab>
+                <mat-tab label="Transaction">
+                    <app-transaction [productId]="productId" scrollbar="true"></app-transaction>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</div>
